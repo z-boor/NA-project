@@ -66,9 +66,6 @@ class Variable:
 def mul_add(a, b, c, d, e):
     return a * b + c * a / e * d + a * e - d / b 
 
-def div_sub(a, b, c):
-    return a / b - c
-
 a, b, c, d, e = Variable(25.0, 1.0), Variable(4.0, 0.0), Variable(-5.0, 0.0), Variable(10.0, 0.0), Variable (3.0, 0.0)
 
 print(f"{a = }, {b = }, {c = }, {d = }, {e = }")
@@ -77,8 +74,3 @@ f.backward(1.0)
 print(f"{d = }")
 print(f"{a.adjoint = }, {b.adjoint = }, {c.adjoint = }, {d.adjoint = }, {e.adjoint = }")
 
-a.adjoint, b.adjoint, c.adjoint = 0.0, 0.0, 0.0
-g = div_sub(a, b, c)
-g.backward(1.0)
-print(f"{e = }")
-print(f"{a.adjoint = }, {b.adjoint = }, {c.adjoint = }")
